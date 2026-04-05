@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaf & Paper — Personal Brand Website</title>
+  <meta name="description" content="Leaf & Paper is a vibrant personal publishing website for blogs, articles, vlogs, community updates, and profile building." />
+  <meta property="og:title" content="Leaf & Paper" />
+  <meta property="og:description" content="A vibrant, scalable personal website system for articles, blogs, media, community, and future login features." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet" />
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem;
+      --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #fbf8f2;
+      --color-surface: #fffdf8;
+      --color-surface-2: #f4efe6;
+      --color-surface-offset: #ede7dc;
+      --color-border: rgba(40,37,29,0.12);
+      --color-text: #221f17;
+      --color-text-muted: #68655e;
+      --color-text-faint: #9a978f;
+      --color-text-inverse: #fffefb;
+      --color-primary: #0c7c59;
+      --color-primary-hover: #085b42;
+      --color-secondary: #f25f5c;
+      --color-tertiary: #6c63ff;
+      --color-gold: #ffb703;
+      --color-highlight: #dff5ea;
+      --shadow-sm: 0 1px 2px rgba(20,20,20,.06);
+      --shadow-md: 0 8px 24px rgba(20,20,20,.08);
+      --shadow-lg: 0 20px 60px rgba(20,20,20,.13);
+      --radius-sm: .5rem; --radius-md: .9rem; --radius-lg: 1.3rem; --radius-xl: 1.8rem; --radius-full: 999px;
+      --font-body: 'Satoshi', system-ui, sans-serif;
+      --font-display: 'Boska', Georgia, serif;
+      --content: min(1180px, calc(100vw - 2rem));
+    }
+    [data-theme="dark"] {
+      --color-bg: #151412;
+      --color-surface: #1c1b18;
+      --color-surface-2: #26231f;
+      --color-surface-offset: #2f2b27;
+      --color-border: rgba(255,255,255,0.1);
+      --color-text: #efe8da;
+      --color-text-muted: #b7b0a4;
+      --color-text-faint: #7e786e;
+      --color-text-inverse: #11100f;
+      --color-primary: #49b68b;
+      --color-primary-hover: #7cd5b0;
+      --color-secondary: #ff8f8d;
+      --color-tertiary: #918bff;
+      --color-gold: #ffd166;
+      --color-highlight: rgba(73,182,139,.16);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.22);
+      --shadow-md: 0 8px 24px rgba(0,0,0,.32);
+      --shadow-lg: 0 20px 60px rgba(0,0,0,.45);
+    }
+    *,.::before,.::after{box-sizing:border-box} *{margin:0} html{scroll-behavior:smooth} body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:radial-gradient(circle at top left, rgba(242,95,92,.08), transparent 25%),radial-gradient(circle at 85% 15%, rgba(108,99,255,.09), transparent 22%),var(--color-bg);color:var(--color-text);min-height:100vh} img,svg{display:block;max-width:100%} a{text-decoration:none;color:inherit} button,input,textarea{font:inherit} button{cursor:pointer;border:none;background:none}
+    .skip-link{position:absolute;left:-999px;top:0}.skip-link:focus{left:1rem;top:1rem;padding:.75rem 1rem;background:var(--color-primary);color:var(--color-text-inverse);border-radius:var(--radius-sm);z-index:1000}
+    .container{width:var(--content);margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:100;background:color-mix(in srgb, var(--color-bg) 78%, transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--color-border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-4) 0}
+    .brand{display:flex;align-items:center;gap:.9rem;font-weight:700}
+    .brand svg{width:2.3rem;height:2.3rem;color:var(--color-primary)}
+    .brand-name{font-size:var(--text-lg);font-family:var(--font-display)}
+    .nav-links{display:flex;flex-wrap:wrap;gap:var(--space-4);align-items:center}
+    .nav-links a{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .nav-links a:hover,.nav-links a:focus-visible{color:var(--color-text)}
+    .theme-btn,.menu-btn{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-surface)}
+    .menu-btn{display:none}
+    .hero{padding:clamp(4rem,8vw,7rem) 0 var(--space-16)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-8);align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.45rem .85rem;border-radius:var(--radius-full);background:var(--color-highlight);color:var(--color-primary);font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+    .hero h1{font-family:var(--font-display);font-size:var(--text-3xl);line-height:1.02;max-width:12ch}
+    .hero p{margin-top:var(--space-5);max-width:60ch;color:var(--color-text-muted)}
+    .cta-row{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-6)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.9rem 1.25rem;border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:700;border:1px solid transparent}
+    .btn-primary{background:var(--color-primary);color:var(--color-text-inverse);box-shadow:var(--shadow-md)}
+    .btn-primary:hover{background:var(--color-primary-hover)}
+    .btn-secondary{background:var(--color-surface);border-color:var(--color-border)}
+    .hero-card{position:relative;background:linear-gradient(160deg, color-mix(in srgb, var(--color-surface) 88%, white 12%), var(--color-surface-2));border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-lg);overflow:hidden;isolation:isolate}
+    .hero-card::before,.hero-card::after{content:"";position:absolute;border-radius:50%;filter:blur(4px);z-index:-1}.hero-card::before{width:13rem;height:13rem;background:rgba(242,95,92,.15);top:-3rem;right:-2rem}.hero-card::after{width:10rem;height:10rem;background:rgba(108,99,255,.17);bottom:-2rem;left:-2rem}
+    .dashboard-preview{display:grid;gap:var(--space-4)}
+    .mini-row{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3)}
+    .mini-card,.panel,.article-card,.page-card,.stack-card,.form-card,.feature{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
+    .mini-card{padding:var(--space-4)} .mini-card strong{font-size:var(--text-lg)}
+    .panel{padding:var(--space-5)}
+    .section{padding:clamp(3.2rem,7vw,6rem) 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:var(--space-4);margin-bottom:var(--space-8)}
+    .section-head h2{font-size:var(--text-2xl);font-family:var(--font-display)}
+    .section-head p{max-width:56ch;color:var(--color-text-muted)}
+    .page-grid,.content-grid,.community-grid,.contact-grid,.arch-grid{display:grid;gap:var(--space-5)}
+    .page-grid{grid-template-columns:repeat(3,1fr)}
+    .page-card,.article-card,.stack-card,.feature,.form-card{padding:var(--space-5)}
+    .page-card h3,.article-card h3,.stack-card h3,.feature h3{font-size:var(--text-lg);margin-bottom:.4rem}
+    .page-card p,.article-card p,.stack-card p,.feature p{color:var(--color-text-muted)}
+    .page-card .tag,.article-card .tag,.stack-card .tag{display:inline-block;margin-bottom:var(--space-3);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-primary);font-weight:700}
+    .content-grid{grid-template-columns:1.25fr .75fr}
+    .article-list{display:grid;gap:var(--space-4)}
+    .article-card{display:grid;grid-template-columns:1fr auto;gap:var(--space-4);align-items:start}
+    .article-meta{font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-2)}
+    .sidebar-stack{display:grid;gap:var(--space-4)}
+    .stack-card ul{padding-left:1rem;color:var(--color-text-muted)}
+    .stack-card li+li{margin-top:.4rem}
+    .community-grid{grid-template-columns:repeat(3,1fr)}
+    .feature{position:relative;overflow:hidden}
+    .feature::after{content:"";position:absolute;inset:auto -2rem -2rem auto;width:6rem;height:6rem;background:radial-gradient(circle, rgba(255,183,3,.25), transparent 70%)}
+    .contact-grid{grid-template-columns:.85fr 1.15fr;align-items:start}
+    .contact-points{display:grid;gap:var(--space-4)}
+    .contact-point{padding:var(--space-4);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg)}
+    .form-card form{display:grid;gap:var(--space-4)}
+    .field{display:grid;gap:.45rem}
+    .field label{font-size:var(--text-sm);font-weight:700}
+    .field input,.field textarea{padding:.9rem 1rem;border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-surface-2);color:var(--color-text)}
+    .field textarea{min-height:9rem;resize:vertical}
+    .login-box{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);padding:var(--space-5);border-radius:var(--radius-xl);background:linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 16%, var(--color-surface)), color-mix(in srgb, var(--color-tertiary) 10%, var(--color-surface)));border:1px solid var(--color-border)}
+    .auth-note{padding:var(--space-4);border-radius:var(--radius-lg);background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.25)}
+    .arch-grid{grid-template-columns:1fr 1fr}
+    .diagram{padding:var(--space-5);background:#101218;color:#eff2ff;border-radius:var(--radius-xl);overflow:auto;box-shadow:var(--shadow-lg)}
+    .diagram pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.84rem;line-height:1.45;min-width:660px}
+    .site-footer{padding:var(--space-8) 0 var(--space-12);border-top:1px solid var(--color-border)}
+    .footer-grid{display:flex;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap;color:var(--color-text-muted)}
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease}.reveal.is-visible{opacity:1;transform:none}
+    @media (max-width: 980px){.hero-grid,.content-grid,.contact-grid,.arch-grid,.login-box,.page-grid,.community-grid{grid-template-columns:1fr 1fr}.article-card{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+    @media (max-width: 760px){.menu-btn{display:grid}.nav-links{display:none;position:absolute;left:1rem;right:1rem;top:calc(100% + .6rem);padding:1rem;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.hero-grid,.page-grid,.content-grid,.community-grid,.contact-grid,.arch-grid,.login-box,.mini-row{grid-template-columns:1fr}.hero h1{max-width:11ch}.container{width:min(100vw - 1.25rem, 1180px)}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Leaf and Paper home">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M16 46C26 44 35 35 38 18C45 20 51 27 50 36C49 48 39 54 28 52C22 51 18 50 16 46Z" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 44C24 37 31 32 41 27" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          <path d="M14 16H30C37 16 42 21 42 28V48H25C18 48 14 43 14 36V16Z" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/>
+          <path d="M22 24H34M22 31H34M22 38H29" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Leaf &amp; Paper</span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-label="Open menu" data-menu-btn>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#articles">Articles</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#community">Community</a>
+        <a href="#login">Login</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal is-visible">
+          <span class="eyebrow">Personal publishing • scalable by design</span>
+          <h1>Write deeply. Publish vividly. Grow your personal brand.</h1>
+          <p>Leaf &amp; Paper is designed as a modern editorial home for your self-written articles, blogs, vlogs, community activity, and future member features. The structure below is intentionally modular, so you can add categories, media galleries, search, comments, and authentication without redesigning the entire site.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#pages">Explore page system</a>
+            <a class="btn btn-secondary" href="#architecture">View code architecture</a>
+          </div>
+        </div>
+        <aside class="hero-card reveal" aria-label="Preview panels">
+          <div class="dashboard-preview">
+            <div class="mini-row">
+              <div class="mini-card"><span class="tag">Published</span><strong>128</strong><p>Articles, blogs &amp; notes</p></div>
+              <div class="mini-card"><span class="tag">Media</span><strong>64GB</strong><p>Video-friendly content setup</p></div>
+              <div class="mini-card"><span class="tag">Community</span><strong>4.8K</strong><p>Future member interactions</p></div>
+            </div>
+            <div class="panel">
+              <strong style="display:block;margin-bottom:.5rem">Recommended homepage rhythm</strong>
+              <p style="color:var(--color-text-muted)">Hero statement, featured article rail, latest blog cards, media spotlight, community pulse, newsletter, and contact footer.</p>
+            </div>
+            <div class="panel">
+              <strong style="display:block;margin-bottom:.5rem">Why this scales</strong>
+              <p style="color:var(--color-text-muted)">Each section can later connect to a CMS, API, or database while preserving the same front-end design language.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="pages">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <h2>Core page set</h2>
+          </div>
+          <p>These are the recommended starter pages for leafandpaper.in, blending personal branding with editorial publishing and future-ready account features.</p>
+        </div>
+        <div class="page-grid">
+          <article class="page-card reveal"><span class="tag">Home</span><h3>Editorial landing page</h3><p>Hero message, featured content, latest updates, media spotlight, newsletter module, and quick access to categories.</p></article>
+          <article class="page-card reveal"><span class="tag">Articles</span><h3>Long-form knowledge hub</h3><p>Structured articles with tags, topic filters, reading time, and room for side notes, references, or downloadable media later.</p></article>
+          <article class="page-card reveal"><span class="tag">Blogs</span><h3>Casual, timely publishing</h3><p>More personal posts, behind-the-scenes entries, travel notes, reflections, and shorter updates in a magazine-style grid.</p></article>
+          <article class="page-card reveal"><span class="tag">Community</span><h3>Engagement layer</h3><p>Reader discussions, reactions, featured comments, member prompts, event announcements, and future circles or groups.</p></article>
+          <article class="page-card reveal"><span class="tag">Login</span><h3>Account gateway</h3><p>Single place for sign in, sign up, profile preferences, bookmarks, saved posts, and later OAuth or magic-link flows.</p></article>
+          <article class="page-card reveal"><span class="tag">Contact</span><h3>Profile + collaboration page</h3><p>Short bio, writing focus, collaboration information, social links, inquiry form, and media or speaking contact details.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="articles">
+      <div class="container content-grid">
+        <div>
+          <div class="section-head reveal" style="margin-bottom:var(--space-5)">
+            <div><h2>Articles layout</h2></div>
+            <p>Use a content-first structure with featured stories at the top and filters for topics, formats, and reading length.</p>
+          </div>
+          <div class="article-list">
+            <article class="article-card reveal"><div><span class="tag">Featured essay</span><h3>Large lead story with image, excerpt, and strong typography</h3><p>The lead card should occupy more visual space than the rest so the page feels editorial, not like a plain list of posts.</p><div class="article-meta">Culture · 8 min read · Featured</div></div><strong style="font-size:var(--text-xl);color:var(--color-secondary)">01</strong></article>
+            <article class="article-card reveal"><div><span class="tag">Topic sections</span><h3>Organize by themes that match your identity</h3><p>Examples: writing, ideas, design, technology, journals, reviews, philosophy, and creator notes.</p><div class="article-meta">Scalable taxonomy for CMS later</div></div><strong style="font-size:var(--text-xl);color:var(--color-tertiary)">02</strong></article>
+            <article class="article-card reveal"><div><span class="tag">Reading UX</span><h3>Add progress bar, pull quotes, share links, and related posts</h3><p>This improves time-on-site and helps long-form writing feel premium instead of dense.</p><div class="article-meta">SEO and engagement friendly</div></div><strong style="font-size:var(--text-xl);color:var(--color-gold)">03</strong></article>
+          </div>
+        </div>
+        <aside class="sidebar-stack">
+          <div class="stack-card reveal"><span class="tag">Recommended modules</span><h3>Article page blocks</h3><ul><li>Hero cover image or video banner</li><li>Author metadata and topic tag</li><li>Sticky table of contents</li><li>Inline media embeds</li><li>Related article rail</li></ul></div>
+          <div class="stack-card reveal"><span class="tag">Media readiness</span><h3>Prepare for vlogs</h3><p>Keep reusable media cards that can support thumbnails, durations, captions, transcripts, and embedded YouTube or self-hosted video later.</p></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="blogs">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><h2>Blogs experience</h2></div>
+          <p>Your blog can feel faster and more personal than the article section while still using the same design system.</p>
+        </div>
+        <div class="community-grid">
+          <article class="feature reveal"><h3>Journal-style cards</h3><p>Compact cards with date, category, and a more casual writing tone for frequent posting.</p></article>
+          <article class="feature reveal"><h3>Visual snippets</h3><p>Short text posts can be paired with image tiles, travel photos, sketches, or quote graphics for visual rhythm.</p></article>
+          <article class="feature reveal"><h3>Series support</h3><p>Create post series such as weekly thoughts, monthly roundups, or themed creator diaries.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="community">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><h2>Community layer</h2></div>
+          <p>This page should begin lightweight now and evolve into a signed-in engagement space later.</p>
+        </div>
+        <div class="community-grid">
+          <article class="feature reveal"><h3>Reader wall</h3><p>Highlight thoughtful comments, testimonials, or responses from readers to build trust and connection.</p></article>
+          <article class="feature reveal"><h3>Challenges & prompts</h3><p>Run monthly writing prompts, discussion threads, or creator challenges to encourage return visits.</p></article>
+          <article class="feature reveal"><h3>Events & updates</h3><p>Show live sessions, online meetups, community polls, and launch announcements in a reusable format.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="login">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><h2>Login strategy</h2></div>
+          <p>The interface below is front-end ready, while the architecture leaves room for secure server-side authentication later.</p>
+        </div>
+        <div class="login-box reveal">
+          <div class="auth-note">
+            <span class="tag">Now</span>
+            <h3>Prototype stage</h3>
+            <p>Use this page as a visual shell for sign in, sign up, forgot password, and profile preferences.</p>
+          </div>
+          <div class="auth-note">
+            <span class="tag">Later</span>
+            <h3>Production stage</h3>
+            <p>Connect to OAuth, email login, database-backed sessions, bookmarks, comments, and role-based access.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <div class="section-head reveal" style="margin-bottom:var(--space-5)">
+            <div><h2>Contact page</h2></div>
+            <p>This page doubles as your public profile and collaboration desk.</p>
+          </div>
+          <div class="contact-points">
+            <div class="contact-point reveal"><strong>Email & inquiries</strong><p>Keep one clear contact path for collaborations, media requests, and reader messages.</p></div>
+            <div class="contact-point reveal"><strong>About snapshot</strong><p>Add a concise personal statement, areas of interest, and the kind of work you want to be known for.</p></div>
+            <div class="contact-point reveal"><strong>Social links</strong><p>Include YouTube, Instagram, LinkedIn, X, or Medium only if they reinforce your profile-building strategy.</p></div>
+          </div>
+        </div>
+        <aside class="form-card reveal">
+          <h3 style="margin-bottom:var(--space-4)">Quick contact form</h3>
+          <form>
+            <div class="field"><label for="name">Name</label><input id="name" type="text" placeholder="Your name" /></div>
+            <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="you@example.com" /></div>
+            <div class="field"><label for="message">Message</label><textarea id="message" placeholder="Tell me a little about your inquiry"></textarea></div>
+            <button class="btn btn-primary" type="button">Send inquiry</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="container arch-grid">
+        <div>
+          <div class="section-head reveal" style="margin-bottom:var(--space-5)">
+            <div><h2>Code architecture</h2></div>
+            <p>This block diagram shows a scalable path from a static personal site to a richer platform with CMS, media, and login.</p>
+          </div>
+          <div class="stack-card reveal">
+            <span class="tag">Recommended stack</span>
+            <h3>Build in layers</h3>
+            <ul>
+              <li>Presentation layer: reusable UI components and page templates</li>
+              <li>Content layer: markdown or headless CMS for posts and page data</li>
+              <li>Media layer: image and video hosting with optimized delivery</li>
+              <li>Auth layer: backend-controlled login, sessions, and protected user actions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="diagram reveal" aria-label="Website architecture diagram">
+<pre>┌───────────────────────────────────────────────────────────────┐
+│                         leafandpaper.in                       │
+├───────────────────────────────────────────────────────────────┤
+│  UI Layer                                                     │
+│  Home | Articles | Blogs | Community | Login | Contact       │
+│  Reusable components: Header, Cards, Filters, Forms, Footer  │
+├───────────────────────────────────────────────────────────────┤
+│  Client Logic Layer                                           │
+│  Routing | Theme toggle | Search UI | Media embeds | Forms   │
+│  Session state | Bookmark actions | Comment interactions     │
+├───────────────────────────────────────────────────────────────┤
+│  Content & Service Layer                                      │
+│  Article data | Blog posts | Profile content | Community data│
+│  CMS / Markdown source | Search index | Email service         │
+├───────────────────────────────────────────────────────────────┤
+│  Auth & Backend Layer                                         │
+│  OAuth / Email login | Session manager | API endpoints       │
+│  Validation | Comment permissions | Admin publishing tools   │
+├───────────────────────────────────────────────────────────────┤
+│  Storage Layer                                                │
+│  Database (users, comments, bookmarks) | Media CDN | Backups │
+└───────────────────────────────────────────────────────────────┘</pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>Leaf &amp; Paper — designed as a flexible personal publishing system.</p>
+      <p>Starter navigation: Home · Articles · Blogs · Community · Login · Contact</p>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const toggle = document.querySelector('[data-theme-toggle]');
+    let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    root.setAttribute('data-theme', theme);
+    const icon = () => theme === 'dark'
+      ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    toggle.innerHTML = icon();
+    toggle.addEventListener('click', () => {
+      theme = theme === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', theme);
+      toggle.innerHTML = icon();
+    });
+
+    const menuBtn = document.querySelector('[data-menu-btn]');
+    const navLinks = document.querySelector('.nav-links');
+    menuBtn?.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('is-visible'); });
+    }, { threshold: 0.14 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
